@@ -28,25 +28,49 @@ The approach advances explainable and auditable AI architectures for safety-crit
 ---
 
 ## 3. Repository Structure
-George to complete
 ```
 ├── README.md
+├── Containerfile
+├── .gitignore
+├── requirements.txt
 ├── /src
 │   ├── /models
-│   │   ├── autoencoder_attention.py
-│   │   ├── dual_mode_ssim.py
-│   │   ├── dual_mode_mahalanobis.py
+│   │   ├── /backbones
+│   │   │   ├── __init__.py
+│   │   │   ├── cpcae.py
+│   │   │   ├── padim.py
+│   │   │   ├── rag_padim.py
+│   │   │   ├── skip_convae.py
+│   │   │   ├── vanilla_convae.py
+│   │   │   ├── unified_res_att_unet.py
+│   │   ├── /layers
+│   │   |   ├── __init__.py
+│   │   │   ├── attention.py
 │   ├── /training
-│   │   ├── train_ssim_mode.py
-│   │   ├── train_rfd_md_mode.py
-│   ├── /evaluation
-│   │   ├── evaluate_ssim_thresholds.py
-│   │   ├── evaluate_mahalanobis_monitoring.py
+│   │   ├── test_ad.py
+│   │   ├── train_ad.py
+│   │   ├── train_ae.py
+│   │   ├── train_cpcae.py
+│   │   ├── train_mocca.py
+│   │   ├── train_padim.py
+│   │   ├── train_rag_padim.py
+│   │   ├── train_vanilla_convae.py
+│   ├── /metrics
+│   │   ├── performance.py
+│   │   ├── ssimlib.py
+│   │   ├── ssimlibtf.py
 │   └── /utils
-│       ├── dataset_loader.py
-│       ├── metrics.py
-│       ├── attention_mask.py
-│       ├── visualization_tools.py
+│       ├── cpcae_trainer.py
+│       ├── data_augmentation.py
+│       ├── data_loader.py
+│       ├── generic_data_loader.py
+│       ├── model_loader.py
+│       ├── model_saver.py
+│       ├── plotting.py
+│       ├── rag_padim_utils.py
+│       ├── batch_image_processor.py
+│       ├── simple_image_processor.py
+│       ├── streamlined_image_app.py
 │
 ├── /experiments
 │   ├── SSI_dataset/
@@ -56,20 +80,15 @@ George to complete
 │   ├── MVTec-Zipper/
 │       ├── training_config.json
 │       ├── results_cross_domain.csv
-│
-├── /appendix_tables
-│   ├── Table4_autoencoder_optimization_step1.csv
-│   ├── Table5_autoencoder_optimization_step2.csv
-│   ├── Table6_ssim_variant_comparison.csv
-│   ├── Table7_feature_distance_methods.csv
-│   ├── Table8_random_selection_ablation.csv
-│   ├── Table9_inference_time_ablation.csv
-│
-├── /notebooks
-│   ├── SSI_experiments.ipynb
-│   ├── MVTEC_crossdomain.ipynb
-│
+|
 └── /docs
+    ├── /appendix_tables
+    │   ├── Table4_autoencoder_optimization_step1.csv
+    │   ├── Table5_autoencoder_optimization_step2.csv
+    │   ├── Table6_ssim_variant_comparison.csv
+    │   ├── Table7_feature_distance_methods.csv
+    │   ├── Table8_random_selection_ablation.csv
+    │   ├── Table9_inference_time_ablation.csv
     ├── figures/
     │   ├── Fig1_dual_mode_architecture.png
     │   ├── Fig2_SSI_dataset.png
