@@ -1,0 +1,14 @@
+__pycache__/*
+data/*
+results/*
+logs/*
+docs/*
+supportive_tbd/*
+*.pyc
+*.bat
+*.log
+*.h5
+tmp/*
+test_input/*
+test_output/*
+output/*
